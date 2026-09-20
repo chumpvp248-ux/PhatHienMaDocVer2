@@ -6,7 +6,7 @@
 - **Đơn vị nghiên cứu**: Trường Đại học Sao Đỏ - Khoa Công nghệ Thông tin.
 - **Nhóm nghiên cứu**: Nhóm NCKH Sinh viên Khoa Công nghệ Thông tin.
 - **Thời gian đề tài**: 09/2026 - 05/2027.
-- **Hạn mức kinh phí dự kiến**: 3.750.000 VNĐ (Thực tế: 0 VNĐ - tận dụng thiết bị sẵn có).
+- **Hạn mức kinh phí dự kiến**: 3.750.000 VNĐ .
 - **Cập nhật lần cuối**: 19/09/2026.
 
 ---
