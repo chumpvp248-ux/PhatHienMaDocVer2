@@ -2,7 +2,7 @@
 
 Dự án thuộc khuôn khổ đề tài nghiên cứu khoa học cấp cơ sở năm học 2026-2027 tại **Trường Đại học Sao Đỏ - Khoa Công nghệ Thông tin**.
 - **Mã định danh dự án**: `AppChongLuaDao`.
-- **Hạn mức kinh phí dự kiến**: 3.750.000 VNĐ (Thực tế: 0 VNĐ - tận dụng tài nguyên mã nguồn mở và thiết bị sẵn có).
+- **Hạn mức kinh phí dự kiến**: 3.750.000 VNĐ 
 
 ---
 
