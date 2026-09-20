@@ -1,0 +1,143 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "LexicalFeatureSchema20",
+  "description": "Schema 20 đặc trưng từ vựng URL theo đúng thứ tự chuẩn hóa của dự án AppChongLuaDao",
+  "version": "1.0.0",
+  "type": "object",
+  "properties": {
+    "url_length": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 4096,
+      "description": "01: Số code point của URL chuẩn hóa"
+    },
+    "host_length": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "02: Độ dài host ASCII"
+    },
+    "path_length": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "03: Độ dài raw path"
+    },
+    "query_length": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "04: Độ dài raw query không gồm dấu hỏi"
+    },
+    "host_dot_count": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "05: Số dấu chấm trong host"
+    },
+    "host_hyphen_count": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "06: Số dấu gạch ngang trong host"
+    },
+    "url_at_count": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "07: Số ký tự @ trong URL"
+    },
+    "url_percent_count": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "08: Số ký tự % trong URL"
+    },
+    "query_amp_count": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "09: Số ký tự & trong query"
+    },
+    "query_equal_count": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "10: Số ký tự = trong query"
+    },
+    "url_digit_ratio": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "description": "11: Tỷ lệ chữ số ASCII / độ dài URL (mẫu số >= 1)"
+    },
+    "url_letter_ratio": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "description": "12: Tỷ lệ chữ cái ASCII / độ dài URL (mẫu số >= 1)"
+    },
+    "host_digit_ratio": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "description": "13: Tỷ lệ chữ số host / độ dài host (mẫu số >= 1)"
+    },
+    "host_is_ip": {
+      "type": "integer",
+      "enum": [0, 1],
+      "description": "14: Host là IPv4 hoặc IPv6 (1 hoặc 0)"
+    },
+    "subdomain_count": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "15: Số nhãn trước registered_domain theo PSL, IP bằng 0"
+    },
+    "uses_https": {
+      "type": "integer",
+      "enum": [0, 1],
+      "description": "16: Scheme là HTTPS (1 hoặc 0)"
+    },
+    "host_has_punycode": {
+      "type": "integer",
+      "enum": [0, 1],
+      "description": "17: Host chứa nhãn bắt đầu bằng xn-- (1 hoặc 0)"
+    },
+    "sensitive_keyword_count": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 6,
+      "description": "18: Số từ khác nhau trong {login, verify, bank, secure, account, update} xuất hiện trong URL lowercase"
+    },
+    "host_entropy": {
+      "type": "number",
+      "minimum": 0.0,
+      "description": "19: Entropy Shannon cơ số 2 của ký tự host ASCII"
+    },
+    "has_userinfo": {
+      "type": "integer",
+      "enum": [0, 1],
+      "description": "20: Parser nhận diện userinfo trước host (1 hoặc 0)"
+    }
+  },
+  "required": [
+    "url_length", "host_length", "path_length", "query_length",
+    "host_dot_count", "host_hyphen_count", "url_at_count", "url_percent_count",
+    "query_amp_count", "query_equal_count", "url_digit_ratio", "url_letter_ratio",
+    "host_digit_ratio", "host_is_ip", "subdomain_count", "uses_https",
+    "host_has_punycode", "sensitive_keyword_count", "host_entropy", "has_userinfo"
+  ],
+  "feature_order": [
+    "url_length",
+    "host_length",
+    "path_length",
+    "query_length",
+    "host_dot_count",
+    "host_hyphen_count",
+    "url_at_count",
+    "url_percent_count",
+    "query_amp_count",
+    "query_equal_count",
+    "url_digit_ratio",
+    "url_letter_ratio",
+    "host_digit_ratio",
+    "host_is_ip",
+    "subdomain_count",
+    "uses_https",
+    "host_has_punycode",
+    "sensitive_keyword_count",
+    "host_entropy",
+    "has_userinfo"
+  ]
+}

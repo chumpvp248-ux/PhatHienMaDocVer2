@@ -1,0 +1,66 @@
+{
+  "version": "1.0.0",
+  "selected_threshold": 0.45,
+  "mlp": {
+    "architecture": "MLP (20 -> 64 -> 32 -> 1)",
+    "validation": {
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "fpr": 0.0,
+      "auc": 1.0,
+      "confusion_matrix": {
+        "tp": 20,
+        "fp": 0,
+        "tn": 64,
+        "fn": 0
+      }
+    },
+    "test": {
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "fpr": 0.0,
+      "auc": 1.0,
+      "confusion_matrix": {
+        "tp": 60,
+        "fp": 0,
+        "tn": 28,
+        "fn": 0
+      }
+    }
+  },
+  "random_forest_baseline": {
+    "architecture": "RandomForest (n_estimators=100)",
+    "validation": {
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "fpr": 0.0,
+      "auc": 1.0,
+      "confusion_matrix": {
+        "tp": 20,
+        "fp": 0,
+        "tn": 64,
+        "fn": 0
+      }
+    },
+    "test": {
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "fpr": 0.0,
+      "auc": 1.0,
+      "confusion_matrix": {
+        "tp": 60,
+        "fp": 0,
+        "tn": 28,
+        "fn": 0
+      }
+    }
+  }
+}

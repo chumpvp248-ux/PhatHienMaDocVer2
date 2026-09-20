@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Chống Lừa Đảo AI</string>
+    <string name="title_home">Phát Hiện URL &amp; QR Lừa Đảo</string>
+    <string name="subtitle_home">Đại học Sao Đỏ - Nghiên cứu AI bảo vệ người dùng</string>
+    <string name="scan_qr">Quét Mã QR</string>
+    <string name="analyze_url">Phân Tích URL</string>
+    <string name="paste_clipboard">Dán từ Clipboard</string>
+    <string name="history_title">Lịch Sử Quét</string>
+    <string name="settings_title">Cài Đặt</string>
+    <string name="result_title">Kết Quả Phân Tích</string>
+    <string name="camera_permission_required">Cần cấp quyền truy cập Camera để quét mã QR</string>
+</resources>

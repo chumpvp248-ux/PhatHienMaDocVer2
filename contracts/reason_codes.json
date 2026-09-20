@@ -1,0 +1,119 @@
+{
+  "version": "1.0.0",
+  "codes": {
+    "HEUR_HOST_IS_IP": {
+      "source": "heuristic",
+      "severity": "high",
+      "title": "Địa chỉ IP thô",
+      "message": "Trang web sử dụng địa chỉ IP trực tiếp thay vì tên miền đã đăng ký, một kỹ thuật thường dùng để né tránh bộ lọc tên miền độc hại."
+    },
+    "HEUR_HAS_USERINFO": {
+      "source": "heuristic",
+      "severity": "high",
+      "title": "Chứa thông tin xác thực giả mạo",
+      "message": "URL chứa ký tự '@' hoặc thông tin người dùng trước tên miền máy chủ, thường được dùng để đánh lừa mắt người đọc về đích đến thực sự."
+    },
+    "HEUR_PUNYCODE": {
+      "source": "heuristic",
+      "severity": "medium",
+      "title": "Tên miền Punycode (Ký tự quốc tế)",
+      "message": "Tên miền chứa tiền tố 'xn--', có khả năng là kỹ thuật tấn công giả mạo thị giác (Homograph Attack) bằng cách dùng ký tự đồng dạng."
+    },
+    "HEUR_SENSITIVE_KEYWORDS": {
+      "source": "heuristic",
+      "severity": "high",
+      "title": "Từ khóa nhạy cảm trong đường dẫn",
+      "message": "Đường dẫn chứa các từ khóa liên quan đến tài khoản, ngân hàng hoặc xác minh bảo mật (login, verify, bank, secure, account, update)."
+    },
+    "HEUR_HIGH_SUBDOMAINS": {
+      "source": "heuristic",
+      "severity": "medium",
+      "title": "Quá nhiều cấp tên miền con",
+      "message": "Tên miền chứa nhiều cấp subdomain bất thường, thường dùng để mạo danh cấu trúc của các tổ chức uy tín."
+    },
+    "HEUR_HIGH_ENTROPY": {
+      "source": "heuristic",
+      "severity": "medium",
+      "title": "Tên miền có độ hỗn loạn ký tự cao",
+      "message": "Tên miền chứa chuỗi ký tự ngẫu nhiên bất thường (entropy cao), thường sinh ra từ thuật toán tự động (DGA) của mã độc hoặc lừa đảo."
+    },
+    "HEUR_NO_HTTPS": {
+      "source": "heuristic",
+      "severity": "low",
+      "title": "Không sử dụng giao thức HTTPS",
+      "message": "Liên kết sử dụng HTTP không mã hóa, dữ liệu truyền tải không được bảo mật."
+    },
+    "HEUR_EXCESSIVE_HYPHENS": {
+      "source": "heuristic",
+      "severity": "medium",
+      "title": "Nhiều dấu gạch ngang trong tên miền",
+      "message": "Tên miền chứa nhiều dấu gạch ngang liên tiếp, thường dùng để chèn tên thương hiệu vào tên miền lạ."
+    },
+    "HEUR_SHORTENER": {
+      "source": "heuristic",
+      "severity": "medium",
+      "title": "Liên kết rút gọn",
+      "message": "Đường dẫn sử dụng dịch vụ rút gọn link, che giấu đích đến thực tế của trang web."
+    },
+    "MODEL_HIGH_RISK": {
+      "source": "model",
+      "severity": "high",
+      "title": "Mô hình AI nhận định nguy cơ lừa đảo cao",
+      "message": "Mạng nơ-ron học máy trên thiết bị phân tích tổ hợp 20 đặc trưng từ vựng và dự đoán đây là liên kết lừa đảo."
+    },
+    "MODEL_MODERATE_RISK": {
+      "source": "model",
+      "severity": "medium",
+      "title": "Mô hình AI khuyến nghị thận trọng",
+      "message": "Mô hình học máy phát hiện một số dấu hiệu bất thường về cấu trúc đường dẫn."
+    },
+    "MODEL_LOW_RISK": {
+      "source": "model",
+      "severity": "info",
+      "title": "Ít dấu hiệu bất thường",
+      "message": "Cấu trúc URL có độ tương đồng cao với các trang web thông thường, ít dấu hiệu rủi ro từ vựng."
+    },
+    "PROVIDER_MALICIOUS": {
+      "source": "threat_intel",
+      "severity": "critical",
+      "title": "Cơ sở dữ liệu an ninh cảnh báo độc hại",
+      "message": "URL đã bị phát hiện và ghi nhận là lừa đảo hoặc độc hại trong mạng lưới an ninh mạng quốc tế."
+    },
+    "FUSION_THIRD_PARTY_MALICIOUS": {
+      "source": "threat_intel",
+      "severity": "critical",
+      "title": "Xác nhận độc hại bởi đối tác an ninh",
+      "message": "Liên kết đã bị nhận diện và đưa vào danh sách đen lừa đảo bởi mạng lưới đối tác an ninh."
+    },
+    "FUSION_THIRD_PARTY_SUSPICIOUS": {
+      "source": "threat_intel",
+      "severity": "high",
+      "title": "Cảnh báo nghi vấn từ mạng lưới bảo mật",
+      "message": "Đối tác an ninh ghi nhận các dấu hiệu bất thường liên quan đến gian lận hoặc nội dung nguy hiểm."
+    },
+    "FUSION_DOMAIN_AGE_CRITICAL": {
+      "source": "whois",
+      "severity": "critical",
+      "title": "Tên miền vừa tạo (Dưới 7 ngày tuổi)",
+      "message": "Tên miền chỉ mới đăng ký dưới 7 ngày trước. Phần lớn trang web lừa đảo trực tuyến sử dụng tên miền ngắn ngày."
+    },
+    "FUSION_DOMAIN_AGE_NEW": {
+      "source": "whois",
+      "severity": "high",
+      "title": "Tên miền mới hoạt động (Dưới 30 ngày)",
+      "message": "Tên miền mới được kích hoạt dưới 30 ngày trước, chưa có thời gian tích lũy lịch sử uy tín."
+    },
+    "FUSION_DOMAIN_MATURE": {
+      "source": "whois",
+      "severity": "low",
+      "title": "Tên miền thâm niên có độ tín nhiệm cao",
+      "message": "Tên miền đã duy trì hoạt động ổn định lâu năm và không ghi nhận vi phạm tại các mạng lưới an ninh."
+    },
+    "FUSION_DISPOSABLE_DOMAIN": {
+      "source": "whois",
+      "severity": "medium",
+      "title": "Đuôi tên miền có nguy cơ lừa đảo cao",
+      "message": "Trang web sử dụng đuôi tên miền giá rẻ/miễn phí thường xuyên bị tội phạm mạng lạm dụng."
+    }
+  }
+}

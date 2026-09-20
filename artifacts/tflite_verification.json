@@ -1,0 +1,108 @@
+{
+  "model_size_kb": 14.5390625,
+  "max_absolute_diff": 1.1920928955078125e-07,
+  "all_score_match": true,
+  "sample_count": 105,
+  "records": [
+    {
+      "id": 1,
+      "url": "https://google.com",
+      "prob_python": 0.137851,
+      "prob_tflite": 0.137851,
+      "diff": 0.0,
+      "score_python": 2,
+      "score_tflite": 2,
+      "match": true
+    },
+    {
+      "id": 2,
+      "url": "https://www.google.com/search?q=antigravity+ai&hl=vi",
+      "prob_python": 0.25418,
+      "prob_tflite": 0.25418,
+      "diff": 0.0,
+      "score_python": 3,
+      "score_tflite": 3,
+      "match": true
+    },
+    {
+      "id": 3,
+      "url": "https://saodo.edu.vn",
+      "prob_python": 0.14143,
+      "prob_tflite": 0.14143,
+      "diff": 0.0,
+      "score_python": 2,
+      "score_tflite": 2,
+      "match": true
+    },
+    {
+      "id": 4,
+      "url": "https://fit.saodo.edu.vn/gioi-thieu-khoa-cntt",
+      "prob_python": 0.414022,
+      "prob_tflite": 0.414022,
+      "diff": 3e-08,
+      "score_python": 5,
+      "score_tflite": 5,
+      "match": true
+    },
+    {
+      "id": 5,
+      "url": "https://vnexpress.net/thoi-su",
+      "prob_python": 0.18226,
+      "prob_tflite": 0.18226,
+      "diff": 1e-08,
+      "score_python": 3,
+      "score_tflite": 3,
+      "match": true
+    },
+    {
+      "id": 6,
+      "url": "https://dantri.com.vn/giao-duc/sinh-vien-nckh-20260919.htm",
+      "prob_python": 0.345443,
+      "prob_tflite": 0.345443,
+      "diff": 3e-08,
+      "score_python": 4,
+      "score_tflite": 4,
+      "match": true
+    },
+    {
+      "id": 7,
+      "url": "https://github.com/torvalds/linux",
+      "prob_python": 0.190431,
+      "prob_tflite": 0.190432,
+      "diff": 3e-08,
+      "score_python": 3,
+      "score_tflite": 3,
+      "match": true
+    },
+    {
+      "id": 8,
+      "url": "https://en.wikipedia.org/wiki/Phishing",
+      "prob_python": 0.294204,
+      "prob_tflite": 0.294205,
+      "diff": 9e-08,
+      "score_python": 4,
+      "score_tflite": 4,
+      "match": true
+    },
+    {
+      "id": 9,
+      "url": "https://youtube.com/watch?v=dQw4w9WgXcQ",
+      "prob_python": 0.244524,
+      "prob_tflite": 0.244524,
+      "diff": 9e-08,
+      "score_python": 3,
+      "score_tflite": 3,
+      "match": true
+    },
+    {
+      "id": 10,
+      "url": "https://stackoverflow.com/questions/tagged/kotlin",
+      "prob_python": 0.296743,
+      "prob_tflite": 0.296743,
+      "diff": 0.0,
+      "score_python": 4,
+      "score_tflite": 4,
+      "match": true
+    }
+  ]
+}

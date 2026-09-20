@@ -1,0 +1,491 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "AppChongLuaDao Threat Intelligence API",
+    "description": "Backend API hỗ trợ tra cứu Threat Intelligence và Sandbox an toàn cho đề tài NCKH ĐH Sao Đỏ",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/health": {
+      "get": {
+        "tags": [
+          "Health"
+        ],
+        "summary": "Health Check",
+        "operationId": "health_check_health_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HealthResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/analyze-url": {
+      "post": {
+        "tags": [
+          "Analysis"
+        ],
+        "summary": "Phân tích URL trực tuyến với Threat Intelligence và Sandbox cô lập",
+        "operationId": "analyze_url_api_v1_analyze_url_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AnalyzeUrlRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AnalyzeUrlResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/sandbox/screenshot": {
+      "get": {
+        "tags": [
+          "Analysis"
+        ],
+        "summary": "Tạo hoặc lấy ảnh chụp màn hình sandbox theo yêu cầu",
+        "operationId": "get_sandbox_screenshot_api_v1_sandbox_screenshot_get",
+        "parameters": [
+          {
+            "name": "url",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "URL cần chụp an toàn",
+              "title": "Url"
+            },
+            "description": "URL cần chụp an toàn"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/analyses/{job_id}": {
+      "get": {
+        "tags": [
+          "Analysis"
+        ],
+        "summary": "Kiểm tra trạng thái tác vụ phân tích bất đồng bộ",
+        "operationId": "get_analysis_job_api_v1_analyses__job_id__get",
+        "parameters": [
+          {
+            "name": "job_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Job Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/": {
+      "get": {
+        "summary": "Root",
+        "operationId": "root__get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AnalyzeUrlRequest": {
+        "properties": {
+          "url": {
+            "type": "string",
+            "maxLength": 4096,
+            "minLength": 1,
+            "title": "Url",
+            "description": "URL cần phân tích (chỉ hỗ trợ HTTP/HTTPS)"
+          },
+          "client_request_id": {
+            "type": "string",
+            "title": "Client Request Id",
+            "description": "ID yêu cầu từ client để tương quan phiên"
+          },
+          "model_version": {
+            "type": "string",
+            "title": "Model Version",
+            "description": "Phiên bản mô hình phía client",
+            "default": "1.0.0-mlp"
+          },
+          "feature_schema_version": {
+            "type": "string",
+            "title": "Feature Schema Version",
+            "description": "Phiên bản feature schema",
+            "default": "1.0.0"
+          },
+          "viewport": {
+            "type": "string",
+            "title": "Viewport",
+            "description": "Loại viewport (mobile hoặc desktop)",
+            "default": "mobile"
+          },
+          "consent": {
+            "$ref": "#/components/schemas/ConsentConfig"
+          }
+        },
+        "type": "object",
+        "required": [
+          "url",
+          "client_request_id"
+        ],
+        "title": "AnalyzeUrlRequest"
+      },
+      "AnalyzeUrlResponse": {
+        "properties": {
+          "request_id": {
+            "type": "string",
+            "title": "Request Id"
+          },
+          "url": {
+            "type": "string",
+            "title": "Url"
+          },
+          "score": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Score"
+          },
+          "verdict": {
+            "type": "string",
+            "title": "Verdict"
+          },
+          "ai_reasons": {
+            "items": {
+              "$ref": "#/components/schemas/ReasonItem"
+            },
+            "type": "array",
+            "title": "Ai Reasons",
+            "default": []
+          },
+          "heuristic_reasons": {
+            "items": {
+              "$ref": "#/components/schemas/ReasonItem"
+            },
+            "type": "array",
+            "title": "Heuristic Reasons",
+            "default": []
+          },
+          "third_party_results": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ProviderResult"
+            },
+            "type": "object",
+            "title": "Third Party Results",
+            "default": {}
+          },
+          "screenshot_status": {
+            "type": "string",
+            "title": "Screenshot Status",
+            "default": "none"
+          },
+          "screenshot_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Screenshot Url"
+          },
+          "screenshot_base64": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Screenshot Base64"
+          },
+          "lookup_urls": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object",
+            "title": "Lookup Urls",
+            "default": {}
+          },
+          "timestamps": {
+            "additionalProperties": {
+              "type": "number"
+            },
+            "type": "object",
+            "title": "Timestamps",
+            "default": {}
+          },
+          "policy_version": {
+            "type": "string",
+            "title": "Policy Version",
+            "default": "1.0.0"
+          },
+          "model_version": {
+            "type": "string",
+            "title": "Model Version",
+            "default": "1.0.0-mlp"
+          }
+        },
+        "type": "object",
+        "required": [
+          "request_id",
+          "url",
+          "score",
+          "verdict"
+        ],
+        "title": "AnalyzeUrlResponse"
+      },
+      "ConsentConfig": {
+        "properties": {
+          "threat_lookup": {
+            "type": "boolean",
+            "title": "Threat Lookup",
+            "default": true
+          },
+          "screenshot": {
+            "type": "boolean",
+            "title": "Screenshot",
+            "default": false
+          }
+        },
+        "type": "object",
+        "title": "ConsentConfig"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "HealthResponse": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "title": "Status",
+            "default": "healthy"
+          },
+          "version": {
+            "type": "string",
+            "title": "Version",
+            "default": "1.0.0"
+          },
+          "service": {
+            "type": "string",
+            "title": "Service",
+            "default": "AppChongLuaDao-Backend"
+          }
+        },
+        "type": "object",
+        "title": "HealthResponse"
+      },
+      "ProviderResult": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "title": "Status"
+          },
+          "checked_at": {
+            "type": "string",
+            "title": "Checked At"
+          },
+          "cache_age_seconds": {
+            "type": "integer",
+            "title": "Cache Age Seconds",
+            "default": 0
+          },
+          "evidence_type": {
+            "type": "string",
+            "title": "Evidence Type",
+            "default": "threat_feed"
+          },
+          "error_code": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Error Code"
+          }
+        },
+        "type": "object",
+        "required": [
+          "status",
+          "checked_at"
+        ],
+        "title": "ProviderResult"
+      },
+      "ReasonItem": {
+        "properties": {
+          "code": {
+            "type": "string",
+            "title": "Code"
+          },
+          "title": {
+            "type": "string",
+            "title": "Title"
+          },
+          "message": {
+            "type": "string",
+            "title": "Message"
+          },
+          "severity": {
+            "type": "string",
+            "title": "Severity"
+          },
+          "source": {
+            "type": "string",
+            "title": "Source"
+          }
+        },
+        "type": "object",
+        "required": [
+          "code",
+          "title",
+          "message",
+          "severity",
+          "source"
+        ],
+        "title": "ReasonItem"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "ctx": {
+            "type": "object",
+            "title": "Context"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      }
+    }
+  }
+}

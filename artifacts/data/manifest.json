@@ -1,0 +1,15 @@
+{
+  "version": "1.0.0",
+  "seed": 42,
+  "split_strategy": "by_registered_domain",
+  "counts": {
+    "total": 572,
+    "train": 400,
+    "val": 84,
+    "test": 88,
+    "train_phishing": 220,
+    "train_benign": 180,
+    "test_phishing": 60,
+    "test_benign": 28
+  }
+}
